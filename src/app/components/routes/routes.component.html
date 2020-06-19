@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-12">
+        <h1>Rutas</h1>
+    </div>
+    <div class="col-12">
+        <div class="card mt-2" *ngFor="let route of arrRoutes">
+            <div class="card-header">
+                {{route?.title}}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">{{route?.description}}</p>
+                
+                <a class="btn btn-primary" [routerLink]="['/home', route?._id] ">Ver ruta</a>
+                    
+                
+                <button *ngIf="user == undefined" [disabled]="user == undefined" class="btn btn-outline-warning" [attr.data-id]="route?._id" (click)="addFavorites($event)">Agregar a favoritos</button>
+                   
+                <button  *ngIf="user != undefined" [disabled]="disableButton(route?._id)" class="btn btn-outline-warning" [attr.data-id]="route?._id"
+                        (click)="addFavorites($event)">Agregar a favoritos</button>
+                
+            </div>
+        </div>
+    </div>
+  
+
+    <div  *ngIf="arrRoutes == '' " class="col-12">
+        <div class="card mt-2">
+            <div class="card-header">
+                <h2>¡Todavía no existe ninguna ruta!</h2>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">¡Crea la primera ruta!</h5>
+
+                <a class="btn btn-success" routerLink="/home/add-route">Crear ruta</a>
+
+            </div>
+        </div>
+    </div>
+</div>

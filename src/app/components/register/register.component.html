@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-4 mt-5">
+            <form [formGroup]="newUser" (ngSubmit)="newRegister()">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input formControlName="name" name="name" autocomplete="off" placeholder="" type="text" class="form-control"
+                    id="exampleInputEmail1" aria-describedby="emailHelp">
+                <p class="denegado" *ngIf="newUser.controls.name.errors?.required && newUser.controls.name.touched">
+                    Campo necesario</p>
+                
+            </div>
+            <div class="form-group">
+                <label for="last_name">Apellidos</label>
+                <input formControlName="last_name" name="last_name" autocomplete="off" placeholder="" type="text" class="form-control"
+                    id="exampleInputEmail1" aria-describedby="emailHelp">
+                <p class="denegado" *ngIf="newUser.controls.last_name.errors?.required && newUser.controls.last_name.touched">
+                    Campo necesario</p>
+            
+            </div>
+               
+               
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input formControlName="email" name="email" autocomplete="off" placeholder="" type="text"
+                        class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <p class="denegado" *ngIf="newUser.controls.email.errors?.required && newUser.controls.email.touched">
+                        Campo necesario</p>
+                    <p class="denegado" *ngIf="newUser.controls.email.errors?.pattern && newUser.controls.email.touched">
+                        Email incorrecto</p>
+                </div>
+               
+               
+               
+               
+               
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Contraseña</label>
+                    <input type="password" formControlName="password" name="password" class="form-control"
+                        id="exampleInputPassword1">
+                    <p class="denegado"
+                        *ngIf="newUser.controls.password.errors?.required && newUser.controls.password.touched">Campo
+                        necesario</p>
+                </div>
+                <input [disabled]="!newUser.valid" type="submit" class="btn btn-primary" value="Entrar">
+                
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+.denegado{
+    color: red;
+}
+
+
+.registro:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}

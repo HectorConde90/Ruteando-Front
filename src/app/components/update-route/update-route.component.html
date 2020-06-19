@@ -1,0 +1,52 @@
+
+
+<div class="row d-flex justify-content-center">
+    <div class="col-4 mt-5">
+        <form [formGroup]="routeUpdate" (ngSubmit)="updateRoute()">
+            <div class="form-group">
+                <label for="title">Ruta</label>
+                <input formControlName="title" value="Hola" name="title" autocomplete="off" placeholder="" type="text"
+                    class="form-control" id="title" aria-describedby="emailHelp">
+                <p class="denegado" *ngIf="routeUpdate.controls.title.errors?.required && routeUpdate.controls.title.touched">
+                    Campo necesario</p>
+
+            </div>
+
+            <div class="form-group">
+                <label for="description">Descripción</label>
+                <input formControlName="description" name="description" autocomplete="off" placeholder="" type="text"
+                    class="form-control" id="description" aria-describedby="emailHelp">
+                <p class="denegado"
+                    *ngIf="routeUpdate.controls.description.errors?.required && routeUpdate.controls.description.touched">
+                    Campo necesario</p>
+
+            </div>
+
+
+            <div  class="form-group">
+                <div #map>
+                    <div class="mymap" id="mymap">
+
+                    </div>
+
+                </div>
+                
+                <div>
+                    <a class="btn btn-primary mt-2" (click)="removeMarkers()">Borrar ruta</a>
+                </div>
+               
+            </div>
+            
+            
+            <input  [disabled]="!routeUpdate.valid" type="submit" class="btn btn-primary mt-2"
+                value="Enviar">
+    </form> 
+        
+        <!-- <button (click)="removeMarkers()">Quitar marcadores</button>
+        <button (click)="removeLastMarker()">Quitar último marcador</button> -->
+    </div>
+
+
+
+
+</div>

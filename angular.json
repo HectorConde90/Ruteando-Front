@@ -24,9 +24,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+              "src/styles.css",
+              "./node_modules/leaflet-routing-machine/dist/leaflet-routing-machine.css"
+
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/leaflet/leaflet.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -119,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ruteando"
+    }
+  },
+  "defaultProject": "ruteando",
+  "cli": {
+    "analytics": false
+  }
 }
