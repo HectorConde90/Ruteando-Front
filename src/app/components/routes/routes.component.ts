@@ -50,8 +50,8 @@ export class RoutesComponent implements OnInit {
     // si el id del user = al id del user_id de la ruta o alguna de las id de favoritas return true
 
     // this.userFavoritesRoutes.find(route => { if (route_id == route) return true })
-    console.log(this.userFavoritesRoutes.forEach(id => { if (route_id == id) { return true } } ));
-
+    // if((this.userFavoritesRoutes.some(id => id = route_id)  )
+    //     return true;
 
     return true;
   }
