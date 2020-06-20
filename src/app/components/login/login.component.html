@@ -1,6 +1,16 @@
 <div class="container">
     <div class="row d-flex justify-content-center">
         <div class="col-4 mt-5">
+            <!-- ALERTS -->
+            <div *ngIf="wrongAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>¡Email o password incorrectos!</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true" (click)="wrongAlert = false">&times;</span>
+                </button>
+            </div>
+
+
+
             <form [formGroup]="login" (ngSubmit)="userLogin()">
                 <div class="form-group">
                     <label for="email">Email address</label>

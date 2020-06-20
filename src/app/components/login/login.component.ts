@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   login: FormGroup;
-
+  wrongAlert: boolean = false;
 
   constructor(private loginService: LoginService, private route: Router) {
     this.login = new FormGroup(
@@ -36,8 +36,14 @@ export class LoginComponent implements OnInit {
   async  userLogin() {
     // console.log(this.login.value);
     const token = await this.loginService.login(this.login.value);
-    await this.loginService.setToken(token);
-    this.route.navigate(['/home']);
+    if (token['message'] === 'Wrong user or password') {
+      this.wrongAlert = true;
+    } else {
+      await this.loginService.setToken(token);
+      this.route.navigate(['/home']);
+    }
+
+    
 
   }
 

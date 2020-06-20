@@ -1,6 +1,22 @@
 <div class="container">
     <div class="row d-flex justify-content-center">
+       
+       
+       
+        
+       
+       
+       
         <div class="col-4 mt-5">
+            <!-- ALERTS -->
+            <div *ngIf="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>¡Email ya existente!</strong> 
+                        <button (click)="alert = false" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+
             <form [formGroup]="newUser" (ngSubmit)="newRegister()">
             <div class="form-group">
                 <label for="name">Nombre</label>

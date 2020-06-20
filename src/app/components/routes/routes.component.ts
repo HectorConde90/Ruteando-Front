@@ -13,7 +13,7 @@ export class RoutesComponent implements OnInit {
   arrRoutes: any;
   user: any;
   userFavoritesRoutes: any;
-  constructor(private routes: RoutesService,private userService: UserService,private loginService: LoginService) {
+  constructor(private routes: RoutesService, private userService: UserService, private loginService: LoginService) {
     this.arrRoutes = [];
   }
 
@@ -38,21 +38,9 @@ export class RoutesComponent implements OnInit {
   async getUser() {
     this.user = await this.userService.getUser();
     this.userFavoritesRoutes = this.user.favorite_routes;
-    console.log(this.userFavoritesRoutes);
+    // console.log(this.userFavoritesRoutes);
 
   }
 
-  disableButton(route_id) {
-    // arr rutas para id de la ruta
-    // el id del user
-    // las ids de las rutas favoritas del user
 
-    // si el id del user = al id del user_id de la ruta o alguna de las id de favoritas return true
-
-    // this.userFavoritesRoutes.find(route => { if (route_id == route) return true })
-    // if((this.userFavoritesRoutes.some(id => id = route_id)  )
-    //     return true;
-
-    return true;
-  }
 }

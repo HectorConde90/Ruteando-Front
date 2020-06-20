@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
+  alert: boolean = false;
   newUser: FormGroup;
   constructor(private registerService: RegisterService,private router: Router) {
     this.newUser = new FormGroup({
@@ -36,10 +36,13 @@ export class RegisterComponent implements OnInit {
 
   async newRegister() {
 
-    await this.registerService.register(this.newUser.value);
-    this.router.navigate(['/login']);
+    const res = await this.registerService.register(this.newUser.value);
+    if (res['message'] === 'User already exists') {
+      this.alert = true;
+    } else {
+      this.router.navigate(['/login']);
+    }
 
-    // console.log(res);
 
   }
 }
