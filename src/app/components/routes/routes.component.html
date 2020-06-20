@@ -2,6 +2,66 @@
     <div class="col-12">
         <h1>Rutas</h1>
     </div>
+    <!-- Buscador -->
+    
+    
+    <div class="col-12">
+        <h2>Filtrar</h2>
+    <!-- Select Dificultad -->
+
+            <div class="form-group">
+                <label for="difficulty">Nivel de dificultad</label>
+                <select [(ngModel)]="difficulty" name="difficulty" id="difficulty" class="form-control">
+                    <option value="Fácil">Fácil</option>
+                    <option value="Moderado">Moderado</option>
+                    <option value="Desafiante">Desafiante</option>
+                </select>
+            </div>
+            <!-- Select Circular -->
+            <div class="form-group">
+                <label for="circular">Circular</label>
+                <select [(ngModel)]="circular" name="circular" id="circular" class="form-control">
+                    <option value="true">Si</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+
+            <!-- Select comunidades -->
+
+            <div class="form-group">
+                <label for="location">Ubicación</label>
+                <select [(ngModel)]="location" name="location" id="location" class="form-control">
+                    <option value="Andalucí­a">Andalucía</option>
+                    <option value="Aragón">Aragón</option>
+                    <option value="Principado de Asturias">Principado de Asturias</option>
+                    <option value="Islas Baleares">Islas Baleares</option>
+                    <option value="Paí­s Vasco">Paí­s Vasco</option>
+                    <option value="Canarias">Canarias</option>
+                    <option value="Cantabria">Cantabria</option>
+                    <option value="Castilla-La Mancha">Castilla-La Mancha</option>
+                    <option value="Castilla y León">Castilla y León</option>
+                    <option value="Cataluña">Cataluña</option>
+                    <option value="Extremadura">Extremadura</option>
+                    <option value="Galicia">Galicia</option>
+                    <option value="Comunidad de Madrid">Comunidad de Madrid</option>
+                    <option value="Región de Murcia">Región de Murcia</option>
+                    <option value="Comunidad Foral de Navarra">Comunidad Foral de Navarra</option>
+                    <option value="La Rioja">La Rioja</option>
+                    <option value="Comunidad Valenciana">Comunidad Valenciana</option>
+                    <option value="Ceuta">Ceuta</option>
+                    <option value="Melilla">Melilla</option>
+                </select>
+            </div>
+
+            <button class="btn btn-outline-primary" (click)="searchMethod()">Filtrar</button>
+        </div>
+
+
+
+
+
+
+    <!-- Rutas -->
     <div class="col-12">
         <div class="card mt-2" *ngFor="let route of arrRoutes">
             <div class="card-header">
@@ -24,6 +84,7 @@
         </div>
     </div>
   
+    <!-- Card si no existen rutas -->
 
     <div  *ngIf="arrRoutes == '' " class="col-12">
         <div class="card mt-2">

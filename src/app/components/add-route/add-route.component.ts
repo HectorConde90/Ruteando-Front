@@ -26,7 +26,23 @@ export class AddRouteComponent implements OnInit {
       description: new FormControl('', [
         Validators.required,
       ]),
-      coordinates: new FormControl('')
+      coordinates: new FormControl(''),
+      distance: new FormControl('', [
+        Validators.pattern(/^[0-9]*(\.)?[0-9]+$/)
+      ]),
+      altitude: new FormControl('', [
+        Validators.pattern(/^(\-)?\d*(\.\d+)?$/)
+      ]),
+      difficulty: new FormControl('',
+        Validators.required
+      ),
+      circular: new FormControl('',
+        Validators.required
+      ),
+      location: new FormControl('',
+        Validators.required
+      )
+
     });
 
     // Variables de los mapas

@@ -22,6 +22,9 @@ export class RoutesService {
     return this.http.get<any>(this.baseUrl + 'routes/' + id);
   }
 
+  searchRoutes(params) {
+    return this.http.post<any>(this.baseUrl + 'routes/search', params);
+  }
 
  
 }
