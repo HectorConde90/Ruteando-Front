@@ -14,8 +14,8 @@ export class RoutesService {
     
   }
 
-  getAllRoutes() {
-    return this.http.get<any>(this.baseUrl + 'routes');
+  getAllRoutes(limit) {
+    return this.http.get<any>(this.baseUrl + 'routes/' + limit);
   }
 
   getOneRoute(id) {
@@ -26,5 +26,5 @@ export class RoutesService {
     return this.http.post<any>(this.baseUrl + 'routes/search', params);
   }
 
- 
+
 }

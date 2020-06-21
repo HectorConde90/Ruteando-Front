@@ -53,6 +53,21 @@
                 </select>
             </div>
 
+            <!-- Select position -->
+            <div class="form-group">
+                <label for="position">Filtrar por radio</label>
+                <select [(ngModel)]="range" name="range" id="range" class="form-control">
+                    <option value="10">10 km</option>
+                    <option value="50">50 km</option>
+                    <option value="100">100 km</option>
+                    <option value="150">150 km</option>
+                    <option value="250">250 km</option>
+                </select>
+            </div>
+
+
+
+
             <button class="btn btn-outline-primary" (click)="searchMethod()">Filtrar</button>
         </div>
 
@@ -82,7 +97,10 @@
                 
             </div>
         </div>
+        <button class="btn btn-outline-warning" (click)="getAllRoutes(10)">Cargar más</button>
     </div>
+
+    
   
     <!-- Card si no existen rutas -->
 

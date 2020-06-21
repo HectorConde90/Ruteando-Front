@@ -15,19 +15,24 @@ export class RoutesComponent implements OnInit {
   difficulty: string;
   circular: string;
   location: string;
+  range: number;
+  pagesLimit: number;
   constructor(private routesService: RoutesService, private userService: UserService, private loginService: LoginService) {
     this.arrRoutes = [];
+    this.pagesLimit = 0;
   }
 
   ngOnInit(){
-    this.getAllRoutes();
+    this.getAllRoutes(10);
     if (this.loginService.getLogged()) { this.getUser(); }
 
 
   }
 
-  getAllRoutes() {
-    this.routesService.getAllRoutes().subscribe(routes => this.arrRoutes = routes);
+  getAllRoutes(pages) {
+
+    this.pagesLimit += pages;
+    this.routesService.getAllRoutes(this.pagesLimit).subscribe(routes => this.arrRoutes = routes);
   }
 
 
@@ -53,6 +58,14 @@ export class RoutesComponent implements OnInit {
     if (this.circular != undefined) {search.push({ circular: this.circular }); }
     if (this.location != undefined) {search.push({ location: this.location }); }
 
+    if (this.range != undefined)
+    {
+      search.push(
+        { location_coordinates: { $within: { $centerSphere: [JSON.parse(localStorage.getItem('coordinates')), this.range / 3963.192] } } }
+      );
+  }
+
+    console.log(search);
 
 
     const searchedRoutes = await this.routesService.searchRoutes(search).toPromise();
