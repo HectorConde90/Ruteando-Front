@@ -11,7 +11,7 @@ export class RoutesService {
   private baseUrl: string = environment.BASE_URL;
 
   constructor(private http: HttpClient, private loginService: LoginService) {
-    
+
   }
 
   getAllRoutes(limit) {
@@ -19,7 +19,7 @@ export class RoutesService {
   }
 
   getOneRoute(id) {
-    return this.http.get<any>(this.baseUrl + 'routes/' + id);
+    return this.http.get<any>(this.baseUrl + 'routes/getroute/' + id);
   }
 
   searchRoutes(params) {

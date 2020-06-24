@@ -1,8 +1,35 @@
-.baner{
+.banner{
     background-image: url('https://cdn.pixabay.com/photo/2015/12/01/20/28/green-1072828_960_720.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
     
 }
 
 nav ul li{
     cursor: pointer;
+    color: white;
+}
+
+.navbar-content{
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.774);
+}
+
+
+.dropdown-content{
+   background-color: rgba(255, 255, 255, 0.774);
+}
+
+.transform{
+    transform: scale(2)
+}
+
+
+.title{
+    font-size: 2rem;
+    letter-spacing: 2px;
 }

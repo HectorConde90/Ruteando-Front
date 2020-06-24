@@ -1,4 +1,9 @@
-.mymap{
-    height: 400px;
-    width: 550px;
+#mymap{
+    height: 500px;
+    width: 100%;
+}
+
+textarea{
+    resize: none;
+    height: 220px;
 }

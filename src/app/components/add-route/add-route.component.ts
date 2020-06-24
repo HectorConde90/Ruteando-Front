@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 declare let L;
 
 @Component({
@@ -11,13 +12,15 @@ declare let L;
 })
 export class AddRouteComponent implements OnInit {
 
+  @ViewChild('map') mapContainer: ElementRef;
+
   markerArray: any;
   layerGroup: any;
   newRoute: FormGroup;
   latlangs: any;
   control: boolean = false;
 
-  constructor(private userService: UserService, private route: Router) {
+  constructor(private userService: UserService, private route: Router, private location: Location) {
 
     this.newRoute = new FormGroup({
       title: new FormControl('', [
@@ -25,6 +28,7 @@ export class AddRouteComponent implements OnInit {
       ]),
       description: new FormControl('', [
         Validators.required,
+        Validators.maxLength(140)
       ]),
       coordinates: new FormControl(''),
       distance: new FormControl('', [
@@ -41,7 +45,8 @@ export class AddRouteComponent implements OnInit {
       ),
       location: new FormControl('',
         Validators.required
-      )
+      ),
+      itinerary: new FormControl('')
 
     });
 
@@ -63,9 +68,8 @@ export class AddRouteComponent implements OnInit {
 
   async addRoute() {
     this.newRoute.value['coordinates'] = this.markerArray;
-    await this.userService.newRoute(this.newRoute.value);
+    const res = await this.userService.newRoute(this.newRoute.value);
     this.route.navigate(['/home/accountroutes/myroutes/add_successfully']);
-
   }
 
 
@@ -113,6 +117,13 @@ export class AddRouteComponent implements OnInit {
 
   }
 
+  removeMarkers() {
+    this.mapContainer.nativeElement.innerHTML = '';
+    this.mapContainer.nativeElement.innerHTML = '<div style="height: 500px; width: 100%;" class="mymap" id="mymap"><h2></h2></div>';
+
+    this.markerArray = [];
+    this.map();
+  }
 
 
 }

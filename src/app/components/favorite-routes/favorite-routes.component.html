@@ -1,4 +1,20 @@
-<div class="row">
+
+
+
+<div class="row border-bottom">
+    <div class="col-12 d-flex justify-content-center">
+        <h2>Rutas Favoritas</h2>
+    </div>
+
+    <div class="col-12 ">
+        <a class="bread" routerLink="/home/accountroutes/myroutes/default">Mis Rutas</a>
+    </div>
+
+</div>
+
+
+
+<!-- <div class="row">
     <div class="col-12" *ngFor="let route of favoriteRoutes">
         <div class="card mt-2">
             <div class="card-header">
@@ -11,7 +27,7 @@
 
             </div>
         </div>
-    </div>
+    </div>-->
     <div *ngIf="favoriteRoutes == '' " class="col-12">
         <div class="card mt-2">
             <div class="card-header">
@@ -23,6 +39,47 @@
                 <a class="btn btn-success" routerLink="/home/routes">Añade nuevas rutas</a>
 
             </div>
+        </div>
+    </div>
+<!-- </div>  -->
+
+
+<div class="col-12" *ngFor="let route of favoriteRoutes">
+    <div class="card my-4 ">
+        <div class="card-header">
+            <h5 class="card-title"><strong>{{route?.title}}</strong></h5>
+        </div>
+        <div class="card-body">
+
+            <p class="card-text">{{route?.description}}</p>
+        </div>
+        <div class="card-footer footer-route border-bottom">
+            <div class="row">
+                <div class="col-4">
+                    <p><strong>Distancia:</strong> {{route?.distance}}</p>
+                    <p *ngIf="route?.circular"><strong>Circular: </strong>Si </p>
+                    <p *ngIf="!route?.circular"><strong>Circular: </strong>No </p>
+                </div>
+                <div class="col-4">
+                    <p><strong>Altitud:</strong> {{route?.altitude}}</p>
+                    <p><strong>Ubicación:</strong> {{route?.location}}</p>
+                </div>
+                <div class="col-4">
+                    <p><strong>Dificultad:</strong> {{route?.difficulty}}</p>
+                    <p><strong>Autor:</strong> {{route?.user_name}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12  my-3 d-flex bd-highlight">
+            <i class="fas fa-eye cursor p-2 bd-highlight mx-5" [routerLink]="['/home', route?._id]"></i>
+            
+
+
+            <!-- <button class="fas fa-trash-alt ml-auto p-2 bd-highlight cursor" data-toggle="modal" (click)="deleteRouteId = $event.target.dataset.id"
+                            data-target="#exampleModal" [attr.data-id]="route?._id"></button> -->
+            <i class="fas fa-trash-alt cursor ml-auto p-2 bd-highlight"  [attr.data-id]="route?._id" (click)="removeFavoriteRoute($event)"></i>
+
+
         </div>
     </div>
 </div>

@@ -65,20 +65,20 @@ export class RoutesComponent implements OnInit {
       );
   }
 
-    console.log(search);
-
-
+    // console.log(search);
+    if(search[0] != undefined){
     const searchedRoutes = await this.routesService.searchRoutes(search).toPromise();
-    console.log(searchedRoutes);
+    // console.log(searchedRoutes);
     this.arrRoutes = searchedRoutes;
+    }
 
     this.difficulty = undefined;
     this.circular = undefined;
     this.location = undefined;
 
 
-
   }
+
 
 
 }

@@ -35,7 +35,7 @@ export class UserService {
 
 
   newRoute(newRoute) {
-    return this.http.post<any>(this.baseUrl + 'routes', newRoute, { headers: this.createHeader() }).subscribe();
+    return this.http.post<any>(this.baseUrl + 'routes', newRoute, { headers: this.createHeader() }).toPromise();
   }
   deleteRoute(id) {
     return this.http.delete<any>(this.baseUrl + 'routes/' + id, { headers: this.createHeader() }).subscribe();

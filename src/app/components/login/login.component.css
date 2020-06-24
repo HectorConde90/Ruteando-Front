@@ -1,9 +1,21 @@
-.denegado{
-    color: red;
-}
+
 
 
 .registro:hover{
     text-decoration: underline;
     cursor: pointer;
 }
+
+.bg-login{
+    background: url('https://camo.githubusercontent.com/5ee25a7798eeeeaf926a60eb4dca6f666b99cfa1/68747470733a2f2f696d616765732e756e73706c6173682e636f6d2f70686f746f2d313531373434363931353332312d3635653937326631623439343f69786c69623d72622d312e322e3126697869643d65794a6863484266615751694f6a45794d446439266175746f3d666f726d6174266669743d63726f7026773d3139353026713d3830');
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.login-container{
+    background-color: rgba(44, 43, 43, 0.671);
+    border-radius: 1rem;
+    color: whitesmoke;
+}
+

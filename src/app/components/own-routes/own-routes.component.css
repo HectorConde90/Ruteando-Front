@@ -1,0 +1,15 @@
+div ul{
+    text-decoration: none;
+    list-style: none;
+    display: inline;
+}
+
+div ul li{
+    display: inline;
+
+}
+
+div{
+    border-bottom: 1px solid silver;
+}
+

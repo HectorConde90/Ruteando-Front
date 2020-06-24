@@ -27,7 +27,6 @@ export class OneRouteComponent implements OnInit {
     let routeId: string;
     this.activatedRoute.params.subscribe(params => routeId = params.id);
     this.route = await this.routeService.getOneRoute(routeId).toPromise();
-    // console.log(this.route);
     this.map();
 
   }

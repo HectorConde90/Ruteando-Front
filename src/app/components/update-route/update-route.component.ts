@@ -32,7 +32,22 @@ export class UpdateRouteComponent implements OnInit {
       description: new FormControl('', [
         Validators.required,
       ]),
-      coordinates: new FormControl('')
+      coordinates: new FormControl(''),
+      distance: new FormControl('', [
+        Validators.pattern(/^[0-9]*(\.)?[0-9]+$/)
+      ]),
+      altitude: new FormControl('', [
+        Validators.pattern(/^(\-)?\d*(\.\d+)?$/)
+      ]),
+      difficulty: new FormControl('',
+        Validators.required
+      ),
+      circular: new FormControl('',
+        Validators.required
+      ),
+      location: new FormControl('',
+        Validators.required
+      )
     });
 
     this.markerArray = [];
@@ -50,7 +65,17 @@ export class UpdateRouteComponent implements OnInit {
     let routeId: string;
     this.activatedRoute.params.subscribe(params => routeId = params.id);
     this.route = await this.routeService.getOneRoute(routeId).toPromise();
-    this.routeUpdate.patchValue({ title: this.route.title, description: this.route.description, coordinates: this.route.coordinates });
+    this.routeUpdate.patchValue(
+      {
+        title: this.route.title,
+        description: this.route.description,
+        coordinates: this.route.coordinates,
+        distance: this.route.distance,
+        altitude: this.route.altitude,
+        difficulty: this.route.difficulty,
+        circular: this.route.circular,
+        location: this.route.location
+      });
     this.map();
 
 
@@ -88,6 +113,7 @@ export class UpdateRouteComponent implements OnInit {
 
     L.polyline(this.route.coordinates, { color: 'brown' }).addTo(map);
     this.layerGroup = L.layerGroup().addTo(map);
+    L.marker([this.route.coordinates[0][0], this.route.coordinates[0][1]]).addTo(map);
 
     map.on('click', (e) => {
       const poplocation = e.latlng;
@@ -116,9 +142,11 @@ export class UpdateRouteComponent implements OnInit {
 
   removeMarkers() {
     this.mapContainer.nativeElement.innerHTML = '';
-    this.mapContainer.nativeElement.innerHTML = '<div style="height: 400px; width: 500px;" class="mymap" id="mymap"><h2></h2></div>';
+    this.mapContainer.nativeElement.innerHTML = '<div style="height: 500px; width: 100%;" class="mymap" id="mymap"><h2></h2></div>';
 
     this.markerArray = [];
     this.map();
   }
+
+
 }
