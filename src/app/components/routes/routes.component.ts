@@ -77,6 +77,7 @@ export class RoutesComponent implements OnInit {
     this.difficulty = undefined;
     this.circular = undefined;
     this.location = undefined;
+    this.range = undefined;
 
 
   }
