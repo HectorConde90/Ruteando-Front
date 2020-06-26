@@ -20,16 +20,17 @@ const routes: Routes = [
   {
     path: 'home', component: HomeComponent, children: [
       { path: 'routes', component: RoutesComponent },
+
       {
         path: 'accountroutes', component: OwnRoutesComponent, canActivate: [AuthGuard], children: [
           { path: 'myroutes/:id', component: MyRoutesComponent, canActivate: [AuthGuard] },
           { path: 'favoriteroutes', component: FavoriteRoutesComponent, canActivate: [AuthGuard] }
-        ]
 
+        ]
       },
       { path: 'add-route', component: AddRouteComponent, canActivate: [AuthGuard] },
-      { path: ':id', component: OneRouteComponent, canActivate: [AuthGuard] },
-      { path: 'update/:id', component: UpdateRouteComponent, canActivate: [AuthGuard] }
+      { path: 'update/:id', component: UpdateRouteComponent, canActivate: [AuthGuard] },
+      { path: ':id', component: OneRouteComponent, canActivate: [AuthGuard] }
     ]
   },
   { path: 'login', component: LoginComponent },

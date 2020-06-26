@@ -1,5 +1,5 @@
 .banner{
-    background-image: url('https://cdn.pixabay.com/photo/2015/12/01/20/28/green-1072828_960_720.jpg');
+    background-image: url('https://www.telegraph.co.uk/content/dam/politics/2019/12/01/TELEMMGLPICT000217268212_trans%2B%2BpVlberWd9EgFPZtcLiMQfyf2A9a6I9YchsjMeADBa08.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     height: 200px;
@@ -24,12 +24,23 @@ nav ul li{
    background-color: rgba(255, 255, 255, 0.774);
 }
 
-.transform{
-    transform: scale(2)
-}
+
 
 
 .title{
     font-size: 2rem;
     letter-spacing: 2px;
+}
+
+.footer{
+    background-image: url('https://i2.wp.com/ultratrailbosquesdelsur.es/wp-content/uploads/2017/12/Fondo-footer.jpg?ssl=1');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    color: whitesmoke;
+}
+
+.derechos{
+    font-size: 0.7rem;
 }

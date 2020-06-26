@@ -17,6 +17,7 @@ export class RoutesComponent implements OnInit {
   location: string;
   range: number;
   pagesLimit: number;
+  morePages: boolean = true;
   constructor(private routesService: RoutesService, private userService: UserService, private loginService: LoginService) {
     this.arrRoutes = [];
     this.pagesLimit = 0;
@@ -30,7 +31,7 @@ export class RoutesComponent implements OnInit {
   }
 
   getAllRoutes(pages) {
-
+    this.morePages = true;
     this.pagesLimit += pages;
     this.routesService.getAllRoutes(this.pagesLimit).subscribe(routes => this.arrRoutes = routes);
   }
@@ -52,6 +53,7 @@ export class RoutesComponent implements OnInit {
 
 
   async searchMethod() {
+    this.morePages = false;
     const search = [];
 
     if (this.difficulty != undefined) { search.push({ difficulty: this.difficulty }); }

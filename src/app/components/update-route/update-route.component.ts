@@ -100,7 +100,7 @@ export class UpdateRouteComponent implements OnInit {
 
   map() {
     // Mapa
-    const map = L.map('mymap').setView([this.route.coordinates[0][0], this.route.coordinates[0][1]], 14);
+    const map = L.map('mymap').setView([this.route.coordinates[0][0], this.route.coordinates[0][1]], 16);
 
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
       attribution: '',

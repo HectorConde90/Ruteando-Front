@@ -8,8 +8,30 @@ div ul li{
     display: inline;
 
 }
-
-div{
-    border-bottom: 1px solid silver;
+div ul li{
+    text-decoration: none;
+    color: rgb(43, 43, 43);
 }
+
+div ul li:hover{
+    text-decoration: none;
+    color: rgb(110, 110, 110);
+}
+
+div ul{
+    padding: 0.5rem;
+    border-bottom: 1px solid silver;
+    border-top: 1px solid silver;
+    
+}
+
+.active{
+    
+    border-bottom: rgb(1, 83, 1) 2px solid;
+}
+
+.active:hover{
+    color: rgb(43, 43, 43) !important;
+}
+
 

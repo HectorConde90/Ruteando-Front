@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  BASE_URL: 'http://localhost:5005/'
+  BASE_URL: 'http://ruteando.herokuapp.com/'
+  // BASE_URL: 'http://localhost:5005/'
 };
 
 /*

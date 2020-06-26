@@ -18,6 +18,8 @@ import { OneRouteComponent } from './components/one-route/one-route.component';
 import { UpdateRouteComponent } from './components/update-route/update-route.component';
 import { OwnRoutesComponent } from './components/own-routes/own-routes.component';
 import { FavoriteRoutesComponent } from './components/favorite-routes/favorite-routes.component';
+import { EmptyPipe } from './pipes/empty.pipe';
+import { EmptyAltitudPipe } from './pipes/empty-altitud.pipe';
 
 
 
@@ -36,6 +38,8 @@ import { FavoriteRoutesComponent } from './components/favorite-routes/favorite-r
     UpdateRouteComponent,
     OwnRoutesComponent,
     FavoriteRoutesComponent,
+    EmptyPipe,
+    EmptyAltitudPipe,
   ],
   imports: [
     BrowserModule,

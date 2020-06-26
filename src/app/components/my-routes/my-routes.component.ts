@@ -38,7 +38,9 @@ export class MyRoutesComponent implements OnInit {
     this.myRoutes.splice(index, 1);
     this.removeAlert = true;
   }
-
+  resetAlert() {
+    this.removeAlert = false;
+  }
 
   alerts() {
     let id;

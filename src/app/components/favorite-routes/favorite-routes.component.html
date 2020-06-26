@@ -1,16 +1,6 @@
 
 
 
-<div class="row border-bottom">
-    <div class="col-12 d-flex justify-content-center">
-        <h2>Rutas Favoritas</h2>
-    </div>
-
-    <div class="col-12 ">
-        <a class="bread" routerLink="/home/accountroutes/myroutes/default">Mis Rutas</a>
-    </div>
-
-</div>
 
 
 
@@ -28,7 +18,7 @@
             </div>
         </div>
     </div>-->
-    <div *ngIf="favoriteRoutes == '' " class="col-12">
+    <div *ngIf="favoriteRoutes == '' " class="col-12 mt-4">
         <div class="card mt-2">
             <div class="card-header">
                 <h2>¡Todavía no tienes ninguna ruta!</h2>
@@ -44,10 +34,17 @@
 <!-- </div>  -->
 
 
-<div class="col-12" *ngFor="let route of favoriteRoutes">
+<div class="col-12 route-card" *ngFor="let route of favoriteRoutes">
     <div class="card my-4 ">
         <div class="card-header">
-            <h5 class="card-title"><strong>{{route?.title}}</strong></h5>
+            <div class="row">
+                <div class="col-1">
+                    <i class="fas fa-map-signs btn-form-scale"></i>
+                </div>
+                <div class="col-11">
+                    <h5 class=" card-title"><strong>{{route?.title}}</strong></h5>
+                </div>
+            </div>
         </div>
         <div class="card-body">
 
@@ -55,16 +52,19 @@
         </div>
         <div class="card-footer footer-route border-bottom">
             <div class="row">
-                <div class="col-4">
-                    <p><strong>Distancia:</strong> {{route?.distance}}</p>
-                    <p *ngIf="route?.circular"><strong>Circular: </strong>Si </p>
-                    <p *ngIf="!route?.circular"><strong>Circular: </strong>No </p>
+                <div class="col-12 col-md-4">
+                    <p><a title="Distancia total de la ruta"><strong>Distacncia</strong> {{route?.distance | empty}}</a></p>
+                
+                
+                    <p *ngIf="route?.circular"><a title="Empieza y termina en el mismo punto"><strong>Circular: </strong>Si </a></p>
+                    <p *ngIf="!route?.circular"><a title="Empieza y termina en el mismo punto"><strong>Circular: </strong>No </a></p>
                 </div>
-                <div class="col-4">
-                    <p><strong>Altitud:</strong> {{route?.altitude}}</p>
+                <div class="col-12 col-md-4">
+                    <p><a title="Altitud máxima respecto al nivel del mar"><strong>Altitud:</strong>
+                            {{route?.altitude | emptyAltitud}}</a></p>
                     <p><strong>Ubicación:</strong> {{route?.location}}</p>
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-md-4">
                     <p><strong>Dificultad:</strong> {{route?.difficulty}}</p>
                     <p><strong>Autor:</strong> {{route?.user_name}}</p>
                 </div>

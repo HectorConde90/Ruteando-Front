@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { GelocationService } from 'src/app/services/gelocation.service';
+
 
 
 @Component({
@@ -10,7 +11,10 @@ import { GelocationService } from 'src/app/services/gelocation.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit{
+
+
+
   user: any;
   isLogged: boolean = false;
   navigator: Navigator;
@@ -23,7 +27,17 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.checkUser();
     this.getPosition();
+
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0)
+    });
+
   }
+
+
 
   async getUser() {
     this.user = await this.userService.getUser();
@@ -43,9 +57,12 @@ export class HomeComponent implements OnInit {
   }
 
   getPosition() {
-    if (navigator.geolocation) {
+    if (localStorage.getItem('coordinates') == null) {
+     if (navigator.geolocation) {
       this.positionService.setCurrentPosition();
     }
+   }
+
 
   }
 }

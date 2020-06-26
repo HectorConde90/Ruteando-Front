@@ -1,4 +1,4 @@
-<div class="row border-bottom">
+<!-- <div class="row border-bottom">
      <div class="col-12 d-flex justify-content-center">
         <h2>Mis Rutas</h2>
     </div>     
@@ -7,12 +7,12 @@
             <a class="bread" routerLink="/home/accountroutes/favoriteroutes">Favoritas</a>
     </div>
     
-</div>
+</div> -->
    
 
 <div class="row">
 
-<div class="col-12 mt-4">
+<div class="col-12">
     <!-- ALERTS -->
     <div *ngIf="updatedAlert" class="alert alert-success alert-dismissible fade show" role="alert">
         <h4>Mensaje modificado correctamente.</h4>
@@ -22,7 +22,7 @@
     </div>
     <div *ngIf="removeAlert" class="alert alert-success alert-dismissible fade show" role="alert">
         <h4>Ruta eliminada correctamente.</h4>
-        <button type="button" class="close" data-dismiss="alert" (click)="updatedAlert = false" routerLink="/home/accountroutes/myroutes/default" aria-label="Close">
+        <button type="button" class="close" data-dismiss="alert" (click)="removeAlert = false" routerLink="/home/accountroutes/myroutes/default" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
@@ -53,7 +53,7 @@
             </div>
         </div> -->
         <div *ngIf="myRoutes == '' " class="col-12" >
-            <div class="card mt-2">
+            <div class="card ">
                 <div class="card-header">
                     <h2>¡Todavía no tienes ninguna ruta!</h2>
                 </div>
@@ -69,9 +69,16 @@
 <!-- </div>  -->
 
 <div  class="col-12" *ngFor="let route of myRoutes">
-    <div class="card my-4 ">
+    <div class="card mb-4 ">
         <div class="card-header">
-            <h5 class="card-title"><strong>{{route?.title}}</strong></h5>
+            <div class="row">
+                <div class="col-1">
+                    <i class="fas fa-map-signs btn-form-scale"></i>
+                </div>
+                <div class="col-11">
+                    <h5 class=" card-title"><strong>{{route?.title}}</strong></h5>
+                </div>
+            </div>
         </div>
         <div class="card-body">
 
@@ -79,23 +86,26 @@
         </div>
         <div class="card-footer footer-route border-bottom">
             <div class="row">
-                <div class="col-4">
-                    <p><strong>Distancia:</strong> {{route?.distance}}</p>
-                    <p *ngIf="route?.circular"><strong>Circular: </strong>Si </p>
-                    <p *ngIf="!route?.circular"><strong>Circular: </strong>No </p>
+                <div class="col-12 col-md-4">
+                    <p><a title="Distancia total de la ruta"><strong>Distacncia</strong> {{route?.distance | empty}}</a></p>
+                
+                
+                    <p *ngIf="route?.circular"><a title="Empieza y termina en el mismo punto"><strong>Circular: </strong>Si </a></p>
+                    <p *ngIf="!route?.circular"><a title="Empieza y termina en el mismo punto"><strong>Circular: </strong>No </a></p>
                 </div>
-                <div class="col-4">
-                    <p><strong>Altitud:</strong> {{route?.altitude}}</p>
+                <div class="col-12 col-md-4">
+                    <p><a title="Altitud máxima respecto al nivel del mar"><strong>Altitud:</strong>
+                            {{route?.altitude | emptyAltitud}}</a></p>
                     <p><strong>Ubicación:</strong> {{route?.location}}</p>
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-md-4">
                     <p><strong>Dificultad:</strong> {{route?.difficulty}}</p>
                     <p><strong>Autor:</strong> {{route?.user_name}}</p>
                 </div>
             </div>
         </div>
         <div class="col-12  my-3 d-flex bd-highlight">
-            <i class="fas fa-eye cursor p-2 bd-highlight mx-5" [routerLink]="['/home', route?._id]" ></i>
+            <i class="fas fa-eye cursor p-2 bd-highlight mr-5" [routerLink]="['/home', route?._id]" ></i>
             <i class="cursor fas fa-wrench p-2 bd-highlight mx-5" [routerLink]="['/home/update', route?._id]"></i>
            
             

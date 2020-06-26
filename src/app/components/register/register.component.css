@@ -1,4 +1,23 @@
-.denegado{
+/* .denegado{
     color: red;
     
+} */
+
+.registro:hover{
+    text-decoration: underline;
+    cursor: pointer;
 }
+
+.bg-register{
+    background: url('https://www.xtrafondos.com/wallpapers/cascada-en-acantilado-en-el-bosque-4620.jpg');
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.register-container{
+    background-color: rgba(44, 43, 43, 0.671);
+    border-radius: 1rem;
+    color: whitesmoke;
+}
+

@@ -32,11 +32,11 @@
                             
                             
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item"routerLink="/home/add-route" >Crear ruta</a>
+                                <!-- <a class="dropdown-item" routerLink="/home/add-route" >Crear ruta</a> -->
                                 <a class="dropdown-item" routerLink="/home/accountroutes/myroutes/default">Administrar rutas</a>
                                 <div class="dropdown-divider"></div>
                                 
-                                <a class="dropdown-item " href="#" (click)="onLogOut()">Cerrar sesión <i class="fas fa-sign-out-alt"></i> </a>
+                                <a class="dropdown-item "  (click)="onLogOut()">Cerrar sesión <i class="fas fa-sign-out-alt"></i> </a>
                             </div>
                         </li>
                     </ul>
@@ -54,10 +54,36 @@
 
 
 
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-12">
            <router-outlet></router-outlet> 
         </div>
     </div>
 </div>
+
+<div class="container-fluid  mt-5">
+    <div class="row mt-5">
+        <div class="col-12 footer mt-5 d-flex justify-content-center align-items-center">
+            <div class="row">
+                <div routerLink="/home"  class="col-12 d-flex justify-content-center cursor">
+                    <h2><i routerLink="/home" class="fas fa-hiking transform mr-4 mb-5"></i>Ruteando</h2>
+                </div>
+                <div class="col-12 d-flex justify-content-center border-bottom">
+                    <h2 >Síguenos también en</h2>
+                </div>
+                <div class="col-12 d-flex justify-content-around my-5   align-items-center">
+                    <i class="fab fa-twitter cursor"></i>
+                    <i class="fab fa-facebook-f cursor"></i>
+                    <i class="fab fa-instagram cursor"></i>
+
+                </div>
+                <div class="col-12 border-top d-flex justify-content-center">
+                    <p class="derechos">© 2020. Ruteando. Todos los derechos reservados.</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+

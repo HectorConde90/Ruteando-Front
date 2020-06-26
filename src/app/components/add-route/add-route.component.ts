@@ -28,7 +28,7 @@ export class AddRouteComponent implements OnInit {
       ]),
       description: new FormControl('', [
         Validators.required,
-        Validators.maxLength(140)
+        Validators.maxLength(240)
       ]),
       coordinates: new FormControl(''),
       distance: new FormControl('', [
@@ -67,9 +67,11 @@ export class AddRouteComponent implements OnInit {
 
 
   async addRoute() {
+
     this.newRoute.value['coordinates'] = this.markerArray;
     const res = await this.userService.newRoute(this.newRoute.value);
     this.route.navigate(['/home/accountroutes/myroutes/add_successfully']);
+
   }
 
 
@@ -77,7 +79,7 @@ export class AddRouteComponent implements OnInit {
 
   map() {
     // Mapa
-    const map = L.map('mymap').setView([42.09822241118974, -5.984687339184343], 10);
+    const map = L.map('mymap').setView([40.41831,- 3.70275], 6);
 
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
       attribution: '',
@@ -109,7 +111,7 @@ export class AddRouteComponent implements OnInit {
     });
     const drawLine = (marray) => {
       this.control = true;
-      const polyline = L.polyline(marray, { color: 'yellow' }).addTo(map);
+      const polyline = L.polyline(marray, { color: 'green' }).addTo(map);
       polyline.addTo(this.layerGroup);
 
   }

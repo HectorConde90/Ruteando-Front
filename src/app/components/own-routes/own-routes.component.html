@@ -1,13 +1,19 @@
 
+<div class="row mb-4">
+    <div class="col-12 d-flex justify-content-center">
+        <h2 *ngIf="myRoutesActive">Mis Rutas</h2>
+        <h2 *ngIf="myFavoriteRoutesActive">Mis Rutas Favoritas</h2>
+    </div>
 
+    <div class="col-12 mt-5">
+        <ul class="d-flex justify-content-between ">
+            <li (click)="changeActive()" class="cursor" routerLink="/home/accountroutes/myroutes/default">Mis Rutas</li>
+            <li (click)="changeActive()" class="cursor" routerLink="/home/accountroutes/favoriteroutes">Favoritas</li>
+            <li class="cursor" routerLink="/home/add-route">Crear Ruta</li>
+        </ul>
 
-<!-- <div class="col-12 ">
-    <ul>
-        <li><a routerLink="/home/accountroutes/myroutes/default">Mis Rutas</a></li>
-        <li><a routerLink="/home/accountroutes/favoriteroutes">Favoritas</a></li>
-    </ul>
-
-</div> -->
+    </div>
+</div>   
 
 
 

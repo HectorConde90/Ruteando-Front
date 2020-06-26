@@ -50,5 +50,6 @@ export class LoginService {
   logOut() {
     localStorage.removeItem('accesToken');
     localStorage.removeItem('isLogged');
+    localStorage.removeItem('coordinates')
   }
 }

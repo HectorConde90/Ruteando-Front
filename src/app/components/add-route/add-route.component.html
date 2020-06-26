@@ -1,141 +1,32 @@
-<!-- <div class="row">
-    <div class="col-12">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="col-4 mt-5">
-                    <form [formGroup]="newRoute" (ngSubmit)="addRoute()">
-
-                        
-                        <div class="form-group">
-                            <label for="title">Ruta</label>
-                            <input formControlName="title" name="title" autocomplete="off" placeholder="" type="text"
-                                class="form-control" id="title" aria-describedby="emailHelp">
-                            <p class="denegado" *ngIf="newRoute.controls.title.errors?.required && newRoute.controls.title.touched">
-                                Campo necesario.</p>
-        
-                        </div>
-
-
-                        
-
-                        <div class="form-group">
-                            <label for="description">Descripción</label>
-                            <input formControlName="description" name="description" autocomplete="off" placeholder="" type="text"
-                                class="form-control" id="description" aria-describedby="emailHelp">
-                            <p class="denegado"
-                                *ngIf="newRoute.controls.description.errors?.required && newRoute.controls.description.touched">
-                                Campo necesario.</p>
-        
-                        </div>
-
-
-                        
-
-                        <div class="form-group">
-                            <label for="distance">Distancia</label>
-                            <input formControlName="distance" name="distance" autocomplete="off" placeholder="" type="text"
-                                class="form-control" id="distance" aria-describedby="emailHelp">
-                            <p class="denegado" *ngIf="newRoute.controls.distance.errors?.pattern && newRoute.controls.distance.touched">
-                                El campo tiene que ser numérico.</p>
-                        
-                        </div>
-                        
-
-                        <div class="form-group">
-                            <label for="altitude">Altitud</label>
-                            <input formControlName="altitude" name="altitude" autocomplete="off" placeholder="" type="text" class="form-control"
-                                id="altitude" aria-describedby="emailHelp">
-                            <p class="denegado" *ngIf="newRoute.controls.altitude.errors?.pattern && newRoute.controls.altitude.touched">
-                                El campo tiene que ser numérico.</p>
-                        
-                        </div>
-                        
-
-                        <div class="form-group">
-                            <label for="difficulty">Nivel de dificultad</label>
-                            <select formControlName="difficulty" name="difficulty" id="difficulty" class="form-control">
-                                <option value="">Seleccione dificultad</option>
-                                <option value="Fácil">Fácil</option>
-                                <option value="Moderado">Moderado</option>
-                                <option value="Desafiante">Desafiante</option>
-                            </select>
-                            <p class="denegado" *ngIf="newRoute.controls.difficulty.errors?.required && newRoute.controls.difficulty.touched">
-                                Selecciona una dificultad.</p>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label  for="circular">Circular</label>
-                            <select formControlName="circular" name="circular" id="circular" class="form-control">
-                                <option value="">Seleccione dificultad</option>
-                                <option value="true">Si</option>
-                                <option value="false">No</option>
-                                
-                            </select>
-                            <p class="denegado" *ngIf="newRoute.controls.circular.errors?.required && newRoute.controls.circular.touched">
-                                Campo necesario.</p>
-                        </div>
-
-                        
-
-                        <div class="form-group">
-                            <label for="location">Ubicación</label>
-                            <select formControlName="location" name="location" id="location" class="form-control">
-                                <option value="0">Escoja una de estas opciones</option>
-                                <option value="Andalucí­a">Andalucía</option>
-                                <option value="Aragón">Aragón</option>
-                                <option value="Principado de Asturias">Principado de Asturias</option>
-                                <option value="Islas Baleares">Islas Baleares</option>
-                                <option value="Paí­s Vasco">Paí­s Vasco</option>
-                                <option value="Canarias">Canarias</option>
-                                <option value="Cantabria">Cantabria</option>
-                                <option value="Castilla-La Mancha">Castilla-La Mancha</option>
-                                <option value="Castilla y León">Castilla y León</option>
-                                <option value="Cataluña">Cataluña</option>
-                                <option value="Extremadura">Extremadura</option>
-                                <option value="Galicia">Galicia</option>
-                                <option value="Comunidad de Madrid">Comunidad de Madrid</option>
-                                <option value="Región de Murcia">Región de Murcia</option>
-                                <option value="Comunidad Foral de Navarra">Comunidad Foral de Navarra</option>
-                                <option value="La Rioja">La Rioja</option>
-                                <option value="Comunidad Valenciana">Comunidad Valenciana</option>
-                                <option value="Ceuta">Ceuta</option>
-                                <option value="Melilla">Melilla</option>
-                            </select>
-                            
-                            <p class="denegado" *ngIf="newRoute.controls.location.errors?.required && newRoute.controls.location.touched">
-                                Campo necesario.</p>
-                        </div>
-                            
-        
-                        <!-- Mapa -->
-                        <!-- <div class="col-12 form-group" id="mymap">
-
-                        </div> 
-                        
-                        
-                        <input *ngIf="!control" [disabled]="true" type="submit" class="btn btn-primary mt-2" value="Enviar">
-                        <input *ngIf="control" [disabled]="!newRoute.valid" type="submit" class="btn btn-primary mt-2" value="Enviar">
-                        
-                        
-                        
-                        
-                        
-                       
-                    </form>
-                </div>
-                    
-
-                    
-
-            </div>
-        </div>
+<div class="row mb-4">
+    <div class="col-12 d-flex justify-content-center">
+       
+        <h2>Crear Ruta</h2>
     </div>
-</div> -->
+
+    <div class="col-12 mt-5">
+        <ul class="d-flex justify-content-between ">
+            <li class="cursor"
+                routerLink="/home/accountroutes/myroutes/default">Mis Rutas</li>
+            <li class="cursor"
+                routerLink="/home/accountroutes/favoriteroutes">Favoritas</li>
+            <li  Class="cursor">Crear Ruta</li>
+        </ul>
+
+    </div>
+</div>
+
+
+
+
+
+
+
 
 
 <!-- Nuevo form -->
 
-<div class="container">
+<div class="container content-area mt-4">
     <form [formGroup]="newRoute" (ngSubmit)="addRoute()">
         <!-- Caracteristicas -->
         <div class="card">
@@ -160,7 +51,7 @@
                                         <!-- Distancia ruta-->
                                         
                                         <div class="form-group">
-                                            <label for="distance">Distancia</label>
+                                            <label for="distance">Distancia <span><i class="fas fa-info-circle" title="Indica la distancia total de la ruta. El valor se representará en KM"></i></span></label>
                                             <input formControlName="distance" name="distance" autocomplete="off" placeholder="" type="text" class="form-control" id="distance"
                                                 aria-describedby="emailHelp">
                                             <p class="denegado2" *ngIf="newRoute.controls.distance.errors?.pattern && newRoute.controls.distance.touched">
@@ -172,7 +63,7 @@
                                         <!--  Altitud ruta -->
                                         
                                         <div class="form-group">
-                                            <label for="altitude">Altitud</label>
+                                            <label for="altitude">Altitud <span><i class="fas fa-info-circle" title="Indica la altitud máxima respecto al nivel del mar.El valor se representará en metros"></i></span></label>
                                             <input formControlName="altitude" name="altitude" autocomplete="off" placeholder="" type="text" class="form-control" id="altitude"
                                                 aria-describedby="emailHelp">
                                             <p class="denegado2" *ngIf="newRoute.controls.altitude.errors?.pattern && newRoute.controls.altitude.touched">
@@ -183,7 +74,7 @@
                                     <div class="col-3">
                                         <!-- Select Circular -->
                                         <div class="form-group">
-                                            <label for="circular2">Circular</label>
+                                            <label for="circular2">Circular <span><i class="fas fa-info-circle" title="Indica si la ruta empieza y termina en el mismo punto"></i></span></label>
                                             <select formControlName="circular" name="circular" id="circular" class="form-control">
                                                 <option value=""></option>
                                                 <option value="true">Si</option>
@@ -253,13 +144,13 @@
                     <!-- Descripcion ruta -->
 
                         <div class="form-group">
-                            <label for="description">Descripción</label>
+                            <label for="description">Descripción <span><i class="fas fa-info-circle" title="Añade una pequeña descripción de 240 caracteres máximo de la ruta."></i></span></label>
                             <textarea formControlName="description" name="description" autocomplete="off" placeholder="" type="text" class="form-control" id="description"
                                 aria-describedby="emailHelp"></textarea>
                             <p class="denegado" *ngIf="newRoute.controls.description.errors?.required && newRoute.controls.description.touched">
                                 Campo necesario.</p>
                                 <p class="denegado" *ngIf="newRoute.controls.description.errors?.maxlength && newRoute.controls.description.touched">
-                                    140 caracteres máximo.</p>
+                                    240 caracteres máximo.</p>
 
                         </div>
                     
@@ -272,7 +163,7 @@
         <div class="card mt-5">
             <div class="card-header d-flex justify-content-between">
                 <h2>Mapa</h2>
-                <h2><i class="fas fa-undo-alt cursor" (click)="removeMarkers()"></i></h2>
+                <h2><i class="fas fa-undo-alt cursor" title="Eliminar coordenadas" (click)="removeMarkers()"></i></h2>
             </div>
             
             <div #map>
@@ -289,12 +180,12 @@
         </div>
         <div class="col-12 mt-3 border-top d-flex justify-content-between">
         
-        <button *ngIf="!control" [disabled]="true" type="submit" class="fas fa-check-circle mt-2 btn  btn-form-scale" ></button>
-        <button *ngIf="control" [disabled]="!newRoute.valid" type="submit" class="  mt-2 btn fas fa-check-circle btn-form-scale" ></button> 
+        <button *ngIf="!control" [disabled]="true" type="submit" class="fas fa-check-circle mt-2 btn btn-none btn-form-scale" ></button>
+        <button *ngIf="control" [disabled]="!newRoute.valid" type="submit" class="  mt-2 btn btn-none fas fa-check-circle btn-form-scale" ></button> 
         
         
         
-        <button class="far fa-window-close cursor btn mt-2 btn-form-scale" routerLink="/home/accountroutes/myroutes/default"></button>
+        <button class="far fa-window-close cursor btn btn-none mt-2 btn-form-scale" routerLink="/home/accountroutes/myroutes/default"></button>
         </div>
         
     </form>
