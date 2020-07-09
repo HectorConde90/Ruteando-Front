@@ -11,4 +11,4 @@ Puedes dibujar las rutas en un mapa e inculo verlas dibujadas.
 
 ## Mapas
 
-Los mapas están desarrollados con leaflet y mapbox.
+Los mapas están desarrollados con Leaflet y Mapbox.
